@@ -7,37 +7,33 @@
   --_radius-end-end: var(--radius-end-end, var(--_radius-block));
   --_radius-end-start: var(--radius-end-start, var(--_radius-inline));
 
-  mask:
+  --_mask-size: calc(50% + 1px) calc(50% + 1px);
+  --_mask:
     radial-gradient(
       circle at 0 0,
       transparent,
       transparent var(--_radius-start-start),
       #fff calc(var(--_radius-start-start) + 1px)
-    ),
+    ) left top / var(--_mask-size) no-repeat,
     radial-gradient(
       circle at 100% 0,
       transparent,
       transparent var(--_radius-start-end),
       #fff calc(var(--_radius-start-end) + 1px)
-    ),
+    ) right top / var(--_mask-size) no-repeat,
     radial-gradient(
       circle at 100% 100%,
       transparent,
       transparent var(--_radius-end-end),
       #fff calc(var(--_radius-end-end) + 1px)
-    ),
+    ) right bottom / var(--_mask-size) no-repeat,
     radial-gradient(
       circle at 0 100%,
       transparent,
       transparent var(--_radius-end-start),
       #fff calc(var(--_radius-end-start) + 1px)
-    )
+    ) left bottom / var(--_mask-size) no-repeat
   ;
-  mask-position: 
-    left top,
-    right top,
-    right bottom,
-    left bottom;
-  mask-size: calc(50% + 1px) calc(50% + 1px);
-  mask-repeat: no-repeat;
+  -webkit-mask: var(--_mask);
+          mask: var(--_mask);
 }
