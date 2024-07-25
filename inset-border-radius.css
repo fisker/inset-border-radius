@@ -7,37 +7,37 @@
   --_radius-end-end: var(--radius-end-end, var(--_radius-block));
   --_radius-end-start: var(--radius-end-start, var(--_radius-inline));
 
-  background-image:
+  mask:
     radial-gradient(
       circle at 0 0,
       transparent,
       transparent var(--_radius-start-start),
-      var(--background-color) calc(var(--_radius-start-start) + 1px)
+      #fff calc(var(--_radius-start-start) + 1px)
     ),
     radial-gradient(
       circle at 100% 0,
       transparent,
       transparent var(--_radius-start-end),
-      var(--background-color) calc(var(--_radius-start-end) + 1px)
+      #fff calc(var(--_radius-start-end) + 1px)
     ),
     radial-gradient(
       circle at 100% 100%,
       transparent,
       transparent var(--_radius-end-end),
-      var(--background-color) calc(var(--_radius-end-end) + 1px)
+      #fff calc(var(--_radius-end-end) + 1px)
     ),
     radial-gradient(
       circle at 0 100%,
       transparent,
       transparent var(--_radius-end-start),
-      var(--background-color) calc(var(--_radius-end-start) + 1px)
+      #fff calc(var(--_radius-end-start) + 1px)
     )
   ;
-  background-position: 
+  mask-position: 
     left top,
     right top,
     right bottom,
     left bottom;
-  background-size: calc(50% + 1px) calc(50% + 1px);
-  background-repeat: no-repeat;
+  mask-size: calc(50% + 1px) calc(50% + 1px);
+  mask-repeat: no-repeat;
 }
