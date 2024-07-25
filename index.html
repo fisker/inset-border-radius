@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inset border-radius</title>
   <link href="./inset-border-radius.css" rel="stylesheet">
+  <link href="./inset-border-radius-background.css" rel="stylesheet">
   <style>
   body {
     min-height: 100%;
@@ -25,7 +26,15 @@
     display: grid;
     place-content: center center;
     counter-increment: index;
+  }
+
+  .inset-border-radius {
     background: linear-gradient(to right, rebeccapurple, lightblue);
+  }
+
+  .inset-border-radius-background {
+    background-color: lightblue;
+    --background-color: rebeccapurple;
   }
 
   li::before {
@@ -37,6 +46,8 @@
 </head>
 <body>
   <h1><a href="https://github.com/fisker/inset-border-radius">Inset border-radius</a></h1>
+
+  <h3>Mask</h3>
   <ul>
     <li class="inset-border-radius" style="--radius: 1em"></li>
     <li class="inset-border-radius" style="--radius-block: 1em"></li>
@@ -46,6 +57,19 @@
     <li class="inset-border-radius" style="--radius-end-end: 1em"></li>
     <li class="inset-border-radius" style="--radius-end-start: 1em"></li>
     <li class="inset-border-radius" style="--radius-start-start: 1em; --radius-start-end: 2em; --radius-end-end: 3em; --radius-end-start: 4em"></li>
+  </ul>
+
+
+  <h3>Background</h3>
+  <ul>
+    <li class="inset-border-radius-background" style="--radius: 1em"></li>
+    <li class="inset-border-radius-background" style="--radius-block: 1em"></li>
+    <li class="inset-border-radius-background" style="--radius-inline: 1em"></li>
+    <li class="inset-border-radius-background" style="--radius-start-start: 1em"></li>
+    <li class="inset-border-radius-background" style="--radius-start-end: 1em"></li>
+    <li class="inset-border-radius-background" style="--radius-end-end: 1em"></li>
+    <li class="inset-border-radius-background" style="--radius-end-start: 1em"></li>
+    <li class="inset-border-radius-background" style="--radius-start-start: 1em; --radius-start-end: 2em; --radius-end-end: 3em; --radius-end-start: 4em"></li>
   </ul>
 
   <hr>
