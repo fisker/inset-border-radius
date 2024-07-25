@@ -21,15 +21,15 @@
       var(--background-color) var(--_radius-start-end)
     ),
     radial-gradient(
-        circle at 100% 100%,
-        transparent,
-        transparent var(--_radius-end-end),
+      circle at 100% 100%,
+      transparent,
+      transparent var(--_radius-end-end),
       var(--background-color) var(--_radius-end-end)
     ),
     radial-gradient(
-        circle at 0 100%,
-        transparent,
-        transparent var(--_radius-end-start),
+      circle at 0 100%,
+      transparent,
+      transparent var(--_radius-end-start),
       var(--background-color) var(--_radius-end-start)
     )
   ;
