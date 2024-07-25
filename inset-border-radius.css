@@ -1,0 +1,43 @@
+.inset-border-radius {
+  --_radius: var(--radius, 0);
+  --_radius-block: var(--radius-block, var(--_radius));
+  --_radius-inline: var(--radius-inline, var(--_radius));
+  --_radius-start-start: var(--radius-start-start, var(--_radius-block));
+  --_radius-start-end: var(--radius-start-end, var(--_radius-inline));
+  --_radius-end-end: var(--radius-end-end, var(--_radius-block));
+  --_radius-end-start: var(--radius-end-start, var(--_radius-inline));
+
+  background-image:
+    radial-gradient(
+      circle at 0 0,
+      transparent,
+      transparent var(--_radius-start-start),
+      var(--background-color) var(--_radius-start-start)
+    ),
+    radial-gradient(
+      circle at 100% 0,
+      transparent,
+      transparent var(--_radius-start-end),
+      var(--background-color) var(--_radius-start-end)
+    ),
+    radial-gradient(
+        circle at 100% 100%,
+        transparent,
+        transparent var(--_radius-end-end),
+      var(--background-color) var(--_radius-end-end)
+    ),
+    radial-gradient(
+        circle at 0 100%,
+        transparent,
+        transparent var(--_radius-end-start),
+      var(--background-color) var(--_radius-end-start)
+    )
+  ;
+  background-position: 
+    left top,
+    right top,
+    right bottom,
+    left bottom;
+  background-size: calc(50% + 1px) calc(50% + 1px);
+  background-repeat: no-repeat;
+}

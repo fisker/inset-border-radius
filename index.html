@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inset border-radius</title>
+  <link href="./inset-border-radius.css" rel="stylesheet">
+  <style>
+  body {
+    height: 100%;
+    display: grid;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2em;
+    list-style: none;
+    padding-inline-start: 0;
+    margin-block: 0;
+    counter-reset: index;
+  }
+
+  li {
+    aspect-ratio: 1 / 1;
+    --background-color: rebeccapurple;
+    display: grid;
+    place-content: center center;
+    counter-increment: index;
+  }
+
+  li::before {
+    content: counter(index);
+    color: #fff;
+    font-size: 30px;
+  }
+  </style>
+</head>
+<body>
+  <ul>
+    <li class="inset-border-radius" style="--radius: 1em"></li>
+    <li class="inset-border-radius" style="--radius-block: 1em"></li>
+    <li class="inset-border-radius" style="--radius-inline: 1em"></li>
+    <li class="inset-border-radius" style="--radius-start-start: 1em"></li>
+    <li class="inset-border-radius" style="--radius-start-end: 1em"></li>
+    <li class="inset-border-radius" style="--radius-end-end: 1em"></li>
+    <li class="inset-border-radius" style="--radius-end-start: 1em"></li>
+    <li class="inset-border-radius" style="--radius-start-start: 1em; --radius-start-end: 2em; --radius-end-end: 3em; --radius-end-start: 4em"></li>
+  </ul>
+</body>
+</html>
