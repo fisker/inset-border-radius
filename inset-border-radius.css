@@ -1,4 +1,4 @@
-.inset-border-radius-background {
+.inset-border-radius {
   --_radius: var(--radius, 0px);
   --_radius-block: var(--radius-block, var(--_radius));
   --_radius-inline: var(--radius-inline, var(--_radius));
@@ -6,38 +6,41 @@
   --_radius-start-end: var(--radius-start-end, var(--_radius-inline));
   --_radius-end-end: var(--radius-end-end, var(--_radius-block));
   --_radius-end-start: var(--radius-end-start, var(--_radius-inline));
-
-  background-image:
+  --_size-and-repeat: calc(50% + 1px) calc(50% + 1px) no-repeat;
+  --_color: var(--background-color, #fff);
+  --_mask-or-background:
     radial-gradient(
       circle at 0 0,
       transparent,
       transparent var(--_radius-start-start),
-      var(--background-color) calc(var(--_radius-start-start) + 1px)
-    ),
+      var(--_color) calc(var(--_radius-start-start) + 1px)
+    ) left top / var(--_size-and-repeat),
     radial-gradient(
       circle at 100% 0,
       transparent,
       transparent var(--_radius-start-end),
-      var(--background-color) calc(var(--_radius-start-end) + 1px)
-    ),
+      var(--_color) calc(var(--_radius-start-end) + 1px)
+    ) right top / var(--_size-and-repeat),
     radial-gradient(
       circle at 100% 100%,
       transparent,
       transparent var(--_radius-end-end),
-      var(--background-color) calc(var(--_radius-end-end) + 1px)
-    ),
+      var(--_color) calc(var(--_radius-end-end) + 1px)
+    ) right bottom / var(--_size-and-repeat),
     radial-gradient(
       circle at 0 100%,
       transparent,
       transparent var(--_radius-end-start),
-      var(--background-color) calc(var(--_radius-end-start) + 1px)
-    )
+      var(--_color) calc(var(--_radius-end-start) + 1px)
+    ) left bottom / var(--_size-and-repeat)
   ;
-  background-position: 
-    left top,
-    right top,
-    right bottom,
-    left bottom;
-  background-size: calc(50% + 1px) calc(50% + 1px);
-  background-repeat: no-repeat;
+}
+
+.inset-border-radius--mask {
+  -webkit-mask: var(--_mask-or-background);
+          mask: var(--_mask-or-background);
+}
+
+.inset-border-radius--background {
+  background: var(--_mask-or-background);
 }
