@@ -7,16 +7,32 @@
   --_radius-end-end: var(--radius-end-end, var(--_radius-block));
   --_radius-end-start: var(--radius-end-start, var(--_radius-inline));
   --_size-and-repeat: calc(50% + 1px) calc(50% + 1px) no-repeat;
-  --_color-stop-list:
+  --_color: var(--background-color, #fff);
+  --_mask-or-background:
+    radial-gradient(
+      circle at 0 0,
       transparent,
       transparent var(--_radius-start-start),
-      var(--background-color, #fff) calc(var(--_radius-start-start) + 1px)
-  ;
-  --_mask-or-background:
-    radial-gradient(circle at 0 0, var(--_color-stop-list)) left top / var(--_size-and-repeat),
-    radial-gradient(circle at 100% 0, var(--_color-stop-list)) right top / var(--_size-and-repeat),
-    radial-gradient(circle at 100% 100%, var(--_color-stop-list)) right bottom / var(--_size-and-repeat),
-    radial-gradient(circle at 0 100%, var(--_color-stop-list)) left bottom / var(--_size-and-repeat)
+      var(--_color) calc(var(--_radius-start-start) + 1px)
+    ) left top / var(--_size-and-repeat),
+    radial-gradient(
+      circle at 100% 0,
+      transparent,
+      transparent var(--_radius-start-end),
+      var(--_color) calc(var(--_radius-start-end) + 1px)
+    ) right top / var(--_size-and-repeat),
+    radial-gradient(
+      circle at 100% 100%,
+      transparent,
+      transparent var(--_radius-end-end),
+      var(--_color) calc(var(--_radius-end-end) + 1px)
+    ) right bottom / var(--_size-and-repeat),
+    radial-gradient(
+      circle at 0 100%,
+      transparent,
+      transparent var(--_radius-end-start),
+      var(--_color) calc(var(--_radius-end-start) + 1px)
+    ) left bottom / var(--_size-and-repeat)
   ;
 }
 
